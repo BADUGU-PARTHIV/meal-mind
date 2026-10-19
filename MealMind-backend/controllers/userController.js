@@ -8,6 +8,7 @@ const {
 } = require('../models/nutritionPlanModel');
 const calculateNutrition =
 require('../services/nutritionService');
+require('dotenv').config({ quiet: true });
 
 const {
 findUserByEmail,

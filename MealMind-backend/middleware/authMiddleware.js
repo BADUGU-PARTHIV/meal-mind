@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config({ quiet: true });
 
 const authMiddleware = (req, res, next) => {
 
@@ -14,10 +15,11 @@ const authMiddleware = (req, res, next) => {
 
     try {
 
-        const decoded = jwt.verify(
-            token,
-            process.env.JWT_SECRET || process.env.JWT_SECRET
-        );
+        if (!token || !process.env.JWT_SECRET) {
+            throw new Error('Token or JWT secret is missing');
+        }
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         req.user = decoded;
 

@@ -1,6 +1,4 @@
-const {
-    searchRecipes
-} = require('../services/mealDbService');
+const { searchMeal } = require('../services/mealDbService');
 
 const searchRecipeController = async (req, res) => {
 
@@ -8,7 +6,7 @@ const searchRecipeController = async (req, res) => {
 
         const food = req.params.food;
 
-        const data = await searchRecipes(food);
+        const data = await searchMeal(food);
 
         res.status(200).json(data);
 
@@ -17,7 +15,7 @@ const searchRecipeController = async (req, res) => {
         console.log(error);
 
         res.status(500).json({
-            message: 'Spoonacular API Error'
+            message: 'MealDB Error'
         });
 
     }

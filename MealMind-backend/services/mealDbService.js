@@ -1,9 +1,11 @@
 const axios = require('axios');
+const MEALDB_BASE_URL = 'https://www.themealdb.com/api/json/v1/1';
 
 const searchMeal = async (meal) => {
 
     const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
+        `${MEALDB_BASE_URL}/search.php`,
+        { params: { s: meal } }
     );
 
     return response.data;
@@ -12,7 +14,7 @@ const searchMeal = async (meal) => {
 const getRandomMeal = async () => {
 
     const response = await axios.get(
-        'https://www.themealdb.com/api/json/v1/1/random.php'
+        `${MEALDB_BASE_URL}/random.php`
     );
 
     return response.data;
@@ -20,7 +22,8 @@ const getRandomMeal = async () => {
 const getMealsByCategory = async (category) => {
 
     const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+        `${MEALDB_BASE_URL}/filter.php`,
+        { params: { c: category } }
     );
 
     return response.data;
@@ -28,7 +31,8 @@ const getMealsByCategory = async (category) => {
 const getMealById = async (id) => {
 
     const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
+        `${MEALDB_BASE_URL}/lookup.php`,
+        { params: { i: id } }
     );
 
     return response.data;

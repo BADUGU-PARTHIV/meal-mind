@@ -1,4 +1,14 @@
-# React + Vite
+# MealMind frontend
+
+## Setup
+
+Install dependencies with `npm install`, then run `npm run dev`.
+
+The frontend expects the backend at `http://localhost:1403` by default. To use a different backend host, set `VITE_API_URL` to the backend origin (without `/api`) in a local `.env` file, for example `VITE_API_URL=http://localhost:1403`.
+
+Run `npm run build` to create a production build and `npm run lint` to check the frontend source.
+
+## Vite template notes
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

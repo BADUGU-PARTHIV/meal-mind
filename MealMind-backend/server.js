@@ -18,6 +18,7 @@ const waterRoutes = require('./routes/waterRoutes');
 const weightRoutes = require('./routes/weightRoutes');
 const usdaRoutes = require('./routes/usdaRoutes');
 const mealDbRoutes = require('./routes/mealDbRoutes');
+const spoonacularRoutes = require('./routes/spoonacularRoutes');
 const recommendationRoutes = require('./routes/recommendationRoutes');
 const inventoryAlertRoutes = require('./routes/inventoryAlertRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
@@ -53,6 +54,7 @@ app.use('/api', budgetRoutes);
 
 app.use('/api/usda', usdaRoutes);
 app.use('/api/meals', mealDbRoutes);
+app.use('/api/spoonacular', spoonacularRoutes);
 
 app.use('/api/mealplan', mealPlanRoutes);
 app.use('/api/recommendation', recommendationRoutes);
