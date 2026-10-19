@@ -1,0 +1,13 @@
+const express = require('express');
+const router = express.Router();
+const {registerUser,loginUser,getProfile,updateProfile,resetProfile} = require('../controllers/userController');
+const {registerValidation,loginValidation} = require('../validators/userValidator');
+const loginLimiter =require('../middleware/rateLimiter');
+const authMiddleware = require('../middleware/authMiddleware');
+const validate = require('../middleware/validationMiddleware');
+router.post('/register',registerValidation,validate,registerUser);
+router.post('/login',loginLimiter,loginValidation,validate,loginUser);
+router.get('/profile', authMiddleware, getProfile);
+router.put('/profile', authMiddleware, updateProfile);
+router.put('/profile/reset', authMiddleware, resetProfile);
+module.exports = router;
